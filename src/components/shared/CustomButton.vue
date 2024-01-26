@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {PropType} from "vue";
+import { PropType } from "vue";
 
 const props = defineProps({
   title: {
@@ -9,17 +9,16 @@ const props = defineProps({
     type: String,
   },
   variant: {
-    type: String as PropType<'primary' | 'secondary'>,
-    default: 'primary',
-  }
-})
-
+    type: String as PropType<"primary" | "secondary">,
+    default: "primary",
+  },
+});
 </script>
 
 <template>
-  <div class="custom-button" :class="variant" v-ripple>
+  <div v-ripple :class="variant" class="custom-button">
     <a v-bind="$attrs">
-      {{ props.title }}
+      <slot> {{ props.title }} </slot>
     </a>
     <span v-if="icon" class="ml-1">
       <i :class="icon" class="icon"></i>
@@ -29,39 +28,26 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .custom-button {
-  @apply px-2;
-  @apply py-1;
-  @apply text-center;
-  @apply cursor-pointer;
-  @apply rounded-md;
-  @apply transition-all;
-  @apply ease-in;
-  @apply duration-200;
-  @apply overflow-hidden;
+  @apply px-2 py-1 text-center cursor-pointer rounded-md transition-all ease-in duration-200 overflow-hidden;
 }
 
-.primary{
-  @apply bg-emerald-400;
-  @apply text-slate-800;
-  box-shadow: inset 0 0 0 0 theme('colors.emerald.400');
+.primary {
+  @apply bg-emerald-400 text-slate-800;
+  box-shadow: inset 0 0 0 0 theme("colors.emerald.400");
 }
 
-.primary:hover{
-  @apply bg-cyan-900;
-  @apply text-white;
-  box-shadow: inset 140px 0 0 0 theme('colors.cyan.900');
+.primary:hover {
+  @apply bg-cyan-900 text-white;
+  box-shadow: inset 140px 0 0 0 theme("colors.cyan.900");
 }
 
-.secondary{
-  @apply bg-cyan-900;
-  @apply text-white;
-  box-shadow: inset 0 0 0 0 theme('colors.cyan.900');
+.secondary {
+  @apply bg-cyan-900 text-white;
+  box-shadow: inset 0 0 0 0 theme("colors.cyan.900");
 }
 
-.secondary:hover{
-  @apply bg-emerald-400;
-  @apply text-slate-800;
-  box-shadow: inset 140px 0 0 0 theme('colors.emerald.400');
+.secondary:hover {
+  @apply bg-emerald-400 text-slate-800;
+  box-shadow: inset 140px 0 0 0 theme("colors.emerald.400");
 }
-
 </style>
