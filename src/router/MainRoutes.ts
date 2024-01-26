@@ -1,9 +1,10 @@
 export const MainRoutes: any[] = [{
-  path: '/home',
-  component: () => import('../views/MainHome.vue'),
-  name: 'Main'
+  path: '/about-me',
+  alias: ['/', '/home', '/inicio'],
+  component: () => import('../views/AboutMe.vue'),
+  name: 'AboutMe'
 }, {
   path: '/resume',
-  component: () => import('../views/MainResume.vue'),
+  component: () => import('../views/Resume.vue'),
   name: 'Resume'
 }]
