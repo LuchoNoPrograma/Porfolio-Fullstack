@@ -107,15 +107,11 @@ onMounted(() => {
 }
 
 .title {
-  @apply text-3xl;
-  @apply text-emerald-300;
-  @apply mb-0;
+  @apply text-3xl text-emerald-300 mb-0;
 }
 
 .title__img {
-  @apply w-full;
-  @apply h-4;
-  @apply mt-0;
+  @apply w-full h-4 mt-0;
   background: url("../assets/images/decoration/wavy-underline.png") no-repeat;
 }
 </style>
