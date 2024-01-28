@@ -1,59 +1,117 @@
 <script lang="ts" setup>
+import CustomButton from "../components/shared/BaseButton.vue";
+import BaseChip from "../components/shared/BaseChip.vue";
 
-import CustomButton from "../components/shared/CustomButton.vue";
-import AppProfileSkill from "./AppProfileSkill.vue";
-
-const skills: { title: string, tech: string, experience: string }[] = [
+const skills: { title: string; tech: string; experience: string }[] = [
   {
-    title: "Desarrollo Backend",
+    title: "Java + Spring Boot",
     tech: "Java + Spring Boot",
-    experience: "(2022-Agosto / Actualidad)"
-  }, {
-    title: "Desarrollo Frontend",
+    experience: "(2022-Octubre / Actualidad)",
+  },
+  {
+    title: "Vue + Typescript",
     tech: "Vue + Typescript",
-    experience: "(2023-Febrero / Actualidad)"
-  }, {
-    title: "Base de Datos",
+    experience: "(2023-Febrero / Actualidad)",
+  },
+  {
+    title: "MySQL + PostgreSQL",
     tech: "MySQL + PostgreSQL",
-    experience: "(2022-Agosto / Actualidad)"
-  }
-]
+    experience: "(2022-Octubre / Actualidad)",
+  },
+];
 
-const print = () => {
-  console.log('Hello Fella');
-}
+const hrefWindow = (url: string) => window.open(url, '_blank')
 </script>
 
 <template>
-  <div class="profile min-h-full relative shadow-lg shadow-slate-800 bg-slate-800">
-    <div class="profile-header absolute left-0 top-0 w-full min-h-32">
-      <svg class="svg1" preserveAspectRatio="none" viewBox="0 0 100 100">
-        <polygon opacity=".65" points="0 20, 100 20, 0 100"></polygon>
-      </svg>
-      <svg class="svg2" preserveAspectRatio="none" viewBox="0 0 100 120">
-        <polygon opacity=".8" points="0 20, 100 20, 15 120"></polygon>
-      </svg>
-      <div class="profile-header__text absolute left-0 top-0 z-10 w-full px-8 py-9">
-        <h3 class="text-white font-medium text-xl mt-0 mr-2 mb-2 ml-0">Luis A. Morales V.</h3>
-        <span>Fullstack</span>
-        <span>Developer</span>
+  <div
+    class="profile grid grid-cols-12 gap-2 bg-slate-800 p-4 overflow-hidden rounded-tl-3xl rounded-tr-3xl w-full"
+    v-bind="$attrs"
+  >
+    <!--    <div class="profile-header absolute left-0 top-0 w-full">
+          <svg
+            class="svg-header svg1"
+            preserveAspectRatio="none"
+            viewBox="0 0 100 100"
+          >
+            <polygon opacity=".65" points="0 20, 100 20, 0 100"></polygon>
+          </svg>
+          <svg
+            class="svg-header svg2"
+            preserveAspectRatio="none"
+            viewBox="0 0 100 120"
+          >
+            <polygon opacity=".8" points="0 20, 100 20, 15 120"></polygon>
+          </svg>
+        </div>-->
+
+    <div class="profile-info col-span-7">
+      <div class="profile-info__overlay">
+        <h3 class="text-3xl">
+          Hola, soy <br />
+          Luis Morales <span class="text-emerald-300">V.</span>
+        </h3>
       </div>
     </div>
-    <div class="profile-photo relative overflow-hidden w-full h-auto">
-      <img alt="Profile Photo" class="object-cover" src="../assets/images/profile.jpg">
-      <div class="profile-photo__overlay absolute w-100 flex justify-start left-0 bottom-2 px-8 z-10">
-        <a
-          class="fac profile-photo__link profile-photo__link--linkedin flex justify-center items-center text-white"
-          href="https://www.linkedin.com/in/luis-alberto-morales-villaca/" target="_blank">
-          <i class="icofont-linkedin"></i>
-        </a>
-        <a
-          class="twi profile-photo__link profile-photo__link--github flex justify-center items-center"
-          href="https://github.com/LuchoNoPrograma" target="_blank">
-          <i>
-            <svg class="icon-github" fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>
-              github</title>
-              <path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,
+    <div class="profile-photo col-span-5">
+      <img
+        alt="Profile Photo"
+        class="profile-photo relative overflow-hidden object-cover rounded-full transition-transform duration-300 hover:scale-110"
+        src="../assets/images/profile.jpg"
+      />
+    </div>
+
+    <div class="col-span-12">
+      <h4 class="text-xl text-emerald-300 drop-shadow-glow my-0">
+        Desarrollador Fullstack
+      </h4>
+      <p class="text-md">
+        <span class="text-cyan-300 drop-shadow-glow"
+          >+1 Año de experiencia</span
+        >
+        desarrollando software empresarial.
+      </p>
+
+      <div class="profile-footer flex items-center gap-1 mb-3">
+        <custom-button icon="icon-Download">Descargar CV</custom-button>
+      </div>
+    </div>
+
+    <div class="col-span-12">
+      <div class="flex justify-center gap-2 z-10">
+        <base-chip
+          :border="true"
+          class="cursor-pointer transition-transform duration-200 ease-in hover:scale-110"
+          color="secondary"
+          title="Linkedin"
+          @click="hrefWindow('https://www.linkedin.com/in/luis-alberto-morales-villaca/')"
+        >
+          <template #prepend-icon>
+            <span>
+              <i class="icofont-linkedin text-cyan-300"></i>
+            </span>
+          </template>
+        </base-chip>
+
+        <base-chip
+          :border="true"
+          class="cursor-pointer transition-transform duration-200 ease-in hover:scale-110"
+          color="secondary"
+          title="Github"
+          @click="hrefWindow('https://github.com/LuchoNoPrograma')"
+        >
+          <template #prepend-icon>
+            <span>
+              <i>
+                <svg
+                  class="icon-github"
+                  fill="rgb(103 232 249)"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title>github</title>
+                  <path
+                    d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,
               21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,
               16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,
               18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,
@@ -61,31 +119,36 @@ const print = () => {
               5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,
               5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,
               11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,
-              19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"/>
-            </svg>
-          </i>
-        </a>
+              19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"
+                  />
+                </svg>
+              </i>
+            </span>
+          </template>
+        </base-chip>
+        <!--        <a
+                  class="fac profile-info__link profile-info__link&#45;&#45;linkedin flex justify-center items-center text-white"
+                  href="https://www.linkedin.com/in/luis-alberto-morales-villaca/"
+                  target="_blank"
+                >
+        
+                </a>
+                <a
+                  class="twi profile-info__link profile-info__link&#45;&#45;github flex justify-center items-center"
+                  href="https://github.com/LuchoNoPrograma"
+                  target="_blank"
+                >
+        
+                </a>-->
       </div>
-    </div>
-    <div class="profile-skills pt-2">
-      <ul>
-        <li v-for="(skill, index) in skills">
-          <app-profile-skill :key="index+1" :experience="skill.experience" :tech="skill.tech" :title="skill.title">
-          </app-profile-skill>
-        </li>
-      </ul>
-    </div>
-    <div class="profile-footer flex justify-center items-center gap-1 mb-3">
-      <custom-button icon="icon-Download" title="Descargar CV" variant="primary" @click="print"></custom-button>
-      <custom-button icon="icon-Imbox" title="Contactame" variant="secondary"></custom-button>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.profile-header svg {
+.profile .svg-header {
   height: 150px;
-  fill: theme('colors.emerald.400');
+  fill: theme("colors.emerald.400");
   width: 100%;
   position: absolute;
   top: -30px;
@@ -93,62 +156,32 @@ const print = () => {
 
   .svg2 {
     top: -25px;
-    fill: theme('colors.emerald.500');
+    fill: theme("colors.emerald.500");
   }
 }
 
-
-.profile-header__text {
-  h3 {
-    line-height: .8;
-  }
-
-  span {
-    display: block;
-    font-size: 14px;
-    font-weight: 400;
-    color: theme('colors.white');
-    line-height: 1em;
+.profile-info__overlay {
+  p {
+    line-height: 1.3;
   }
 }
 
-.profile-photo__link {
+.profile-info__link {
   width: 40px;
   height: 40px;
   border-radius: 70% 30% 30% 70%/70% 70% 30% 30%;
-  font-size: 14px;
+  font-size: 1.25em;
   line-height: 1;
   padding: 14px 0;
   margin: 0 10px 0 0;
 }
 
-.profile-footer__link--secondary {
-  background-color: theme('colors.cyan.900');
-  box-shadow: inset 0 0 0 0 theme('colors.cyan.900');
+.profile-info__link--linkedin {
+  background: #1773ea;
 }
 
-.profile-footer__link--secondary:hover {
-  box-shadow: inset 100px 0 0 0 theme('colors.emerald.400');
-  color: theme('colors.slate.800')
-}
-
-.profile-footer__link--primary {
-  background-color: theme('colors.emerald.400');
-  box-shadow: inset 0 0 0 0 theme('colors.emerald.400');
-}
-
-.profile-footer__link--primary:hover {
-  color: theme('colors.white');
-  box-shadow: inset 100px 0 0 0 theme('colors.cyan.900');
-}
-
-
-.profile-photo__link--linkedin {
-  background: #1773ea
-}
-
-.profile-photo__link--github {
-  background: #11193b;
+.profile-info__link--github {
+  background: #416bc2;
 }
 
 .icon-github {

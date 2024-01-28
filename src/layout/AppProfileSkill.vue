@@ -21,9 +21,9 @@ const props = defineProps({
   <div class="profile-skills__item ml-2 flex">
     <span class="text-white font-medium mr-2">{{getCurrentInstance().vnode.key}}.-</span>
     <div>
-      <h4 class="text-white font-medium mb-0">{{ props.title }}</h4>
-      <p class="text-xs text-gray-200 mb-1">{{ props.tech }}</p>
-      <p class="text-xs text-gray-300">{{ props.experience }}</p>
+      <h4 class="text-gray-200 font-medium mb-0">{{ props.title }}</h4>
+<!--      <p class="text-xs text-gray-200 mb-1">{{ props.tech }}</p>
+      <p class="text-xs text-gray-300">{{ props.experience }}</p>-->
     </div>
   </div>
 </template>
