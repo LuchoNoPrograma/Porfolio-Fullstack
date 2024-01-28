@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import type { TablerIconComponent } from "@tabler/icons-vue";
+import { TablerIconComponent } from "vue-tabler-icons";
 import { PropType } from "vue";
 
 const props = defineProps({
-  item: {
-    type: Object as PropType<TablerIconComponent>,
+  icon: {
+    type: Function as PropType<TablerIconComponent>,
   },
   size: {
     type: Number,
@@ -19,7 +19,7 @@ const props = defineProps({
 
 <template>
   <component
-    :is="props.item"
+    :is="props.icon"
     :size="props.size"
     :stroke-width="props.strokeWidth"
     class="inline"
