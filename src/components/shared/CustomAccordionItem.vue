@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { PropType, ref } from "vue";
 import { ItemAccordion } from "../../types/type-components.ts";
+import BaseChip from "./BaseChip.vue";
 
 const props = defineProps({
   item: {
@@ -63,13 +64,13 @@ const toggleAccordion = () => {
         v-if="item.chips"
         class="accordion-content__container-chip w-full flex justify-start flex-wrap gap-2 mb-1 ml-1"
       >
-        <span
+        <base-chip
           v-for="(chip, index) in item.chips"
           :key="index"
-          class="bg-emerald-800 px-3 rounded-2xl"
+          variant="primary"
+          :title="chip.title"
         >
-          <span class="text-emerald-200">{{ chip.title }}</span>
-        </span>
+        </base-chip>
       </div>
       <span class="text-gray-300">{{ item.content }}</span>
     </div>
