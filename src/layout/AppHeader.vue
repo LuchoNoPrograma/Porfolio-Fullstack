@@ -1,71 +1,141 @@
 <script lang="ts" setup>
-import AppHeaderListItem from "./AppHeaderListItem.vue";
-import {useRouter} from "vue-router";
+import AppHeaderLink from "./AppHeaderLink.vue";
+import { useRouter } from "vue-router";
+import { ref } from "vue";
 
 const router = useRouter();
 
+const items: { iconClass: string; title: string; to?: string }[] = [
+  {
+    iconClass: "icon-House",
+    title: "Sobre mi",
+    to: "/about-me",
+  },
+  {
+    iconClass: "icon-User",
+    title: "Resúmen",
+    to: "/resume",
+  },
+  {
+    iconClass: "icon-Bulb",
+    title: "Proyectos",
+    // to: "/portfolio",
+  },
+  {
+    iconClass: "icon-ClipboardText",
+    title: "Habilidades",
+    // to: "/blog",
+  },
+  {
+    iconClass: "icon-Imbox",
+    title: "Contactos",
+    // to: "/contact",
+  },
+];
 
-const items: { iconClass: string, title: string, to: string }[] = [{
-  iconClass: "icon-House",
-  title: "Home",
-  to: "/home",
-}, {
-  iconClass: "icon-User",
-  title: "Resume",
-  to: "/resume",
-}, {
-  iconClass: "icon-Bulb",
-  title: "Portfolio",
-  to: "/portfolio",
-}, {
-  iconClass: "icon-ClipboardText",
-  title: "Blog",
-  to: "/blog",
-}, {
-  iconClass: "icon-Imbox",
-  title: "Contact",
-  to: "/contact",
-}]
+const menuResponsiveExpanded = ref<boolean>(false);
+const expandMenuResponsive = () => {
+  menuResponsiveExpanded.value = !menuResponsiveExpanded.value;
+};
 </script>
 
 <template>
-  <header class="relative min-h-90 shadow-lg shadow-slate-800 mb-30 clearfix bg-cyan-900">
-    <a class="hidden mx-2" href="javascript:void(0)">
-      <i class="icofont-navigation-menu"></i>
-      <div class="text-white transition-colors duration-300 ease-in-out hover:text-emerald-400">
-        Menu
+  <header
+    id="app-header"
+    class="shadow-lg shadow-slate-800 bg-cyan-900 rounded-xl"
+  >
+    <div class="min-h-10">
+      <nav class="grid grid-cols-12">
+        <a
+          id="nav__menu-toggle"
+          v-ripple
+          class="hidden bg-emerald-400 text-2xl text-white transition-colors duration-300 ease-in-out"
+          href="javascript:void(0)"
+          @click="expandMenuResponsive"
+        >
+          <i class="icofont-navigation-menu"></i> <span>Menu</span>
+        </a>
+        <ul
+          class="col-span-10 flex flex-wrap items-center justify-center gap-4 nav__menu-list"
+        >
+          <li
+            v-for="(item, index) in items"
+            :key="index"
+            class="inline-block w-auto text-center rounded-xl nav__menu-list-item"
+          >
+            <app-header-link
+              :icon-class="item.iconClass"
+              :title="item.title"
+              :to="item.to"
+            ></app-header-link>
+          </li>
+        </ul>
+        <a
+          v-ripple
+          class="sidebarToggler col-span-2 flex justify-center items-center bg-slate-800 transition-all duration-300 ease-in-out hover:bg-emerald-400 hover:text-white"
+        >
+          <i class="icon icon-Menu text-4xl"></i>
+        </a>
+      </nav>
+      <div
+        class="nav__menu-toggle-wrapper sticky left-0 -bottom-48 bg-slate-800 w-full z-10"
+      >
+        <ul
+          :class="menuResponsiveExpanded ? 'expanded' : 'collapsed'"
+          class="col-span-10 gap-4 transition-all duration-300 ease-in overflow-hidden"
+        >
+          <li
+            v-for="(item, index) in items"
+            :key="index"
+            class="w-auto text-center rounded-xl nav__menu-list-item"
+          >
+            <app-header-link
+              :icon-class="item.iconClass"
+              :title="item.title"
+              :to="item.to"
+              position-icon="left"
+              @click="menuResponsiveExpanded = false"
+            ></app-header-link>
+          </li>
+        </ul>
       </div>
-    </a>
-    <nav class="mainMenu grid-cols-12">
-      <ul class="clearfix colspan-10 flex flex-wrap items-center gap-2 float-left">
-        <app-header-list-item v-for="(item, index) in items" :key="index"
-                              :icon-class="item.iconClass" :title="item.title" :to="item.to"
-        ></app-header-list-item>
-      </ul>
-      <a v-ripple class="sidebarToggler col-span-2 flex justify-center items-center
-        bg-slate-800
-        transition-all duration-300 ease-in-out hover:bg-emerald-500 hover:text-white" href="#">
-        <i class="icon icon-Menu text-4xl"></i>
-      </a>
-    </nav>
+    </div>
   </header>
 </template>
 
 <style lang="scss" scoped>
-header {
-  min-height: 90px;
+#app-header {
+  @apply sticky top-0 z-20;
 }
 
-ul {
-  li {
-    min-width: 120px;
+@media (max-width: 800px) {
+  #nav__menu-toggle {
+    @apply col-span-10 flex justify-center items-center gap-2;
+    max-height: 100px;
+    transition: all 300ms ease-in;
+  }
+
+  .nav__menu-list {
+    @apply hidden top-0 left-0 w-full h-full flex-col items-center justify-start z-30;
+  }
+}
+
+.nav__menu-list-item {
+  min-width: 6em;
+}
+
+.nav__menu-toggle-wrapper {
+  .expanded {
+    max-height: 600px;
+  }
+
+  .collapsed {
+    max-height: 0;
   }
 }
 
 .sidebarToggler {
-  float: right;
-  width: 90px;
+  width: 100%;
   height: 90px;
-  position: relative
 }
 </style>
