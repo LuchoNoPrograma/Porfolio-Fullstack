@@ -1,9 +1,8 @@
 <script lang="ts" setup>
 import BaseCard from "../components/shared/BaseCard.vue";
-import BaseIcon from "../components/shared/BaseIcon.vue";
 import type { TablerIconComponent } from "vue-tabler-icons";
 import { DatabaseExportIcon, WorldWwwIcon } from "vue-tabler-icons";
-import { ref } from "vue";
+import { markRaw, reactive } from "vue";
 
 type ItemCard = {
   title: string;
@@ -12,7 +11,7 @@ type ItemCard = {
 };
 
 type ItemCardWithFocus = ItemCard & { focus?: boolean };
-const itemsAboutMe = ref<ItemCardWithFocus[]>([
+const itemsAboutMe: ItemCardWithFocus[] = [
   {
     title: "Desarrollo Web",
     description: `Especificamente, aplicaciones web empresariales, abordando aspectos
@@ -28,7 +27,16 @@ const itemsAboutMe = ref<ItemCardWithFocus[]>([
               utilizando diversos protocolos de autenticación.`,
     icon: DatabaseExportIcon,
   },
-]);
+];
+
+const itemsAboutMeReactive = itemsAboutMe.map((item: ItemCardWithFocus) => {
+  return reactive({
+    title: item.title,
+    description: item.description,
+    focus: false,
+    icon: markRaw(item.icon),
+  });
+});
 
 const focusItem = (item: ItemCardWithFocus, focused: boolean) => {
   item.focus = focused;
@@ -53,10 +61,9 @@ const focusItem = (item: ItemCardWithFocus, focused: boolean) => {
         de 1 año y medio de experiencia en el mundo laboral.
       </p>
       <p>
-        Mi enfoque se centra en el aprendizaje constante y la mejora continua.
         Encontrarás mis proyectos personales que reflejan mi creatividad,
         dedicación y experiencia.
-<!--        🚀💻-->
+        <!--        🚀💻-->
       </p>
     </div>
 
@@ -67,10 +74,10 @@ const focusItem = (item: ItemCardWithFocus, focused: boolean) => {
 
       <div class="grid grid-cols-2 gap-4">
         <base-card
-          @focus="focusItem2(item)"
-          v-for="(item, index) in itemsAboutMe"
+          v-for="(item, index) in itemsAboutMeReactive"
           :key="index"
-          class="lg:col-span-1 col-span-2 bg-cyan-850 border-b-2 border-b-gray-400 base-card" :class="item.focus? 'base-card__layout--focus': ''"
+          :class="item.focus ? 'base-card__layout--focus' : ''"
+          class="lg:col-span-1 col-span-2 bg-cyan-850 border-b-2 border-b-gray-400 base-card transition-transform duration-200 ease-in hover:scale-105"
           @mouseleave="focusItem(item, false)"
           @mouseover.stop="focusItem(item, true)"
         >
@@ -86,7 +93,7 @@ const focusItem = (item: ItemCardWithFocus, focused: boolean) => {
                 :class="item.focus ? 'text-emerald-300' : 'text-gray-200'"
                 class="inline ml-1 transition-colors ease-in duration-200"
               >
-                <base-icon :item="item.icon" :size="28"></base-icon>
+                <component :is="item.icon"></component>
               </span>
             </div>
           </template>
@@ -102,7 +109,7 @@ const focusItem = (item: ItemCardWithFocus, focused: boolean) => {
 </template>
 
 <style lang="scss" scoped>
-.base-card__layout--focus{
+.base-card__layout--focus {
   @apply border-b-emerald-400 transition-all duration-300 ease-in-out;
 }
 </style>
