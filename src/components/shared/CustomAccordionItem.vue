@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { PropType, ref } from "vue";
-import { ItemAccordion } from "../../types/type-components.ts";
+import { ItemAccordion } from "../../types/ComponentType.ts";
 import BaseChip from "./BaseChip.vue";
 
 const props = defineProps({
@@ -18,7 +18,6 @@ const accordionContent = ref<HTMLDivElement>();
 
 const toggleAccordion = () => {
   props.item.expanded = !props.item.expanded;
-  console.log(accordionContent.value.clientHeight);
 };
 </script>
 
@@ -67,8 +66,8 @@ const toggleAccordion = () => {
         <base-chip
           v-for="(chip, index) in item.chips"
           :key="index"
-          variant="primary"
           :title="chip.title"
+          variant="primary"
         >
         </base-chip>
       </div>

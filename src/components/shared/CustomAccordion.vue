@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { PropType } from "vue";
-import type { ItemAccordion } from "../../types/type-components.ts";
+import type { ItemAccordion } from "../../types/ComponentType.ts";
 import CustomAccordionItem from "./CustomAccordionItem.vue";
 
 const props = defineProps({
@@ -24,10 +24,6 @@ const props = defineProps({
       ></custom-accordion-item>
     </template>
   </div>
-
-  <!--  DOTS-->
-  <!--  <div v-if="index !== 0"
-         class="absolute left-0 top-0 bottom-0 transform -translate-x-1/2 h-4 w-4 bg-emerald-400 rounded-full"></div>-->
 </template>
 
 <style scoped></style>
