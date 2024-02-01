@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import { TablerIconComponent } from "vue-tabler-icons";
-import { PropType } from "vue";
+import { defineAsyncComponent } from "vue";
 
 const props = defineProps({
   icon: {
-    type: Function as PropType<TablerIconComponent>,
+    type: String,
+    required: true,
   },
   size: {
     type: Number,
@@ -15,13 +15,22 @@ const props = defineProps({
     default: 1.5,
   },
 });
+
+const BaseIcon = defineAsyncComponent(
+  () => import(`../../assets/icons/${props.icon}.svg`),
+);
 </script>
 
 <template>
-  <component
-    :is="props.icon"
-    :size="props.size"
-    :stroke-width="props.strokeWidth"
-    class="inline"
-  ></component>
+  <base-icon icon="icon" :style="{'width': props.size+'px'}" class="base-icon"></base-icon>
 </template>
+
+<style lang="scss" scoped>
+svg{
+  @apply h-fit inline fill-emerald-200;
+}
+
+svg path{
+  @apply fill-emerald-200;
+}
+</style>
