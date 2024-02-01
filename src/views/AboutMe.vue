@@ -77,7 +77,8 @@ const focusItem = (item: ItemCardWithFocus, focused: boolean) => {
           v-for="(item, index) in itemsAboutMeReactive"
           :key="index"
           :class="item.focus ? 'base-card__layout--focus' : ''"
-          class="lg:col-span-1 col-span-2 bg-cyan-850 border-b-2 border-b-gray-400 base-card transition-transform duration-200 ease-in hover:scale-105"
+          color="secondary"
+          class="lg:col-span-1 col-span-2 border-b-2 border-b-gray-400 base-card transition-transform duration-200 ease-in hover:scale-105"
           @mouseleave="focusItem(item, false)"
           @mouseover.stop="focusItem(item, true)"
         >
