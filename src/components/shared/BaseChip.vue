@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { PropType, ref } from "vue";
+import { PropType } from "vue";
 import BaseIcon from "../../App.vue";
 import { TablerIconComponent } from "vue-tabler-icons";
 
@@ -21,39 +21,22 @@ const props = defineProps({
   },
   border: {
     type: Boolean,
-    default: false,
   },
 });
-
-const primary = ref<boolean>(false);
-const secondary = ref<boolean>(false);
-
-let colorChip = ref<string>();
-switch (props.color) {
-  case "primary":
-    colorChip.value = "emerald";
-    primary.value = true;
-    break;
-  case "secondary":
-    colorChip.value = "cyan";
-    secondary.value = true;
-    break;
-  default:
-    "emerald";
-}
 </script>
 
 <template>
   <!--  bg-${colorChip}-850-->
   <div
     :class="[
-      `bg-${colorChip}-850`,
+      { 'bg-emerald-850': props.color === 'primary' },
+      { 'bg-cyan-850': props.color === 'secondary' },
       { border: props.border },
-      { 'border-cyan-300': secondary },
-      { 'border-emerald-200': primary },
+      { 'border-cyan-300': props.color === 'primary' },
+      { 'border-emerald-200': props.color === 'secondary' },
     ]"
-    class="px-3 rounded-2xl flex items-center gap-1"
-    v-bind="$attrs.href"
+    class="px-3 w-fit rounded-2xl flex items-center gap-1"
+    v-bind="$attrs"
   >
     <slot name="prepend-icon">
       <template v-if="tablerIcon">
@@ -63,11 +46,9 @@ switch (props.color) {
         <i :class="icon" class="icon inline"></i>
       </template>
     </slot>
+
     <span
-      :class="[
-        { 'text-emerald-200': primary },
-        { 'text-cyan-300': secondary },
-      ]"
+      :class="[{ 'text-emerald-200': props.color === 'primary' }, { 'text-cyan-300': props.color === 'secondary' }]"
       >{{ props.title }}</span
     >
     <slot name="append-icon">
@@ -78,6 +59,7 @@ switch (props.color) {
         <i :class="icon" class="icon inline"></i>
       </template>
     </slot>
+    <slot name="append"> </slot>
   </div>
 </template>
 
