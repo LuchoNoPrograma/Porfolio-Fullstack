@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { ItemAccordion } from "../types/type-components.ts";
+import type { ItemAccordion } from "../types/ComponentType.ts";
 import { onMounted, ref } from "vue";
 import CustomAccordion from "../components/shared/CustomAccordion.vue";
 
@@ -54,7 +54,7 @@ onMounted(() => {
 <template>
   <div class="w-full grid grid-cols-12 gap-4">
     <div
-      class="2xl:col-span-6 xl:col-span-12 lg:col-span-12 md:col-span-12 col-span-12"
+      class="lg:col-span-12 md:col-span-12 sm:col-span-6 xs:col-span-6 col-span-12"
     >
       <div class="resumen__item resumen__item--first">
         <h3 class="title">Experiencia</h3>
@@ -64,7 +64,7 @@ onMounted(() => {
     </div>
     <div class="my-2 mx-2"></div>
     <div
-      class="2xl:col-span-6 xl:col-span-12 lg:col-span-12 md:col-span-12 col-span-12"
+      class="lg:col-span-12 md:col-span-12 sm:col-span-6 xs:col-span-6 col-span-12"
     >
       <div class="resumen__item resumen__item--second">
         <h3 class="title">Educación</h3>
