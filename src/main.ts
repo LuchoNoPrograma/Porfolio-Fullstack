@@ -11,9 +11,6 @@ import { createPinia } from "pinia";
 import "viewerjs/dist/viewer.css";
 import VueViewer from "v-viewer";
 
-
-import "./assets/scss/override.scss";
-
 const pinia = createPinia();
 const app = createApp(App);
 

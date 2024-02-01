@@ -1,4 +1,6 @@
-export const MainRoutes: any[] = [{
+import {RouteRecordRaw} from "vue-router";
+
+export const MainRoutes: RouteRecordRaw[] = [{
   path: '/about-me',
   alias: ['/', '/home', '/inicio'],
   component: () => import('../views/AboutMe.vue'),
@@ -7,4 +9,12 @@ export const MainRoutes: any[] = [{
   path: '/resume',
   component: () => import('../views/Resume.vue'),
   name: 'Resume'
+}, {
+  path: '/projects',
+  component: () => import('../views/Projects.vue'),
+  name: 'Projects'
+}, {
+  path: '/projects/:projectId',
+  component: () => import('../views/ProjectsDetail.vue'),
+  name: 'ProjectsDetail'
 }]
