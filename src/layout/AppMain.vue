@@ -3,9 +3,11 @@ import { RouterView, useRouter } from "vue-router";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-vue";
 import BaseIcon from "../components/shared/BaseIcon.vue";
 import CustomButton from "../components/shared/BaseButton.vue";
+import {itemsNavigation} from "../data/ItemNavigation.ts";
+import {ItemNavigationType} from "../types/DataType.ts";
 
 const router = useRouter();
-const links: string[] = ["/about-me", "/resume"];
+const links: string[] = itemsNavigation.map((item: ItemNavigationType) => item.to?? "/about-me");
 let actual: number = 0;
 
 const toView = (direction: "left" | "right") => {
@@ -14,12 +16,14 @@ const toView = (direction: "left" | "right") => {
   } else {
     actual >= links.length - 1 ? (actual = 0) : actual++;
   }
+
+  console.log(links[actual], actual);
   router.push(links[actual]);
 };
 </script>
 
 <template>
-  <div class="main bg-slate-800 rounded-tl-xl rounded-tr-xl p-8">
+  <div class="main bg-slate-800 rounded-tl-xl rounded-tr-xl p-5">
     <router-view id="router-view" v-slot="{ Component }">
       <transition mode="out-in" name="slide">
         <component :is="Component" :key="$route.path"></component>
@@ -28,10 +32,10 @@ const toView = (direction: "left" | "right") => {
 
     <div class="mt-6 flex justify-center gap-2">
       <custom-button class="rounded-full" @click="toView('left')">
-        <base-icon :icon="IconArrowLeft"></base-icon>
+        <icon-arrow-left></icon-arrow-left>
       </custom-button>
       <custom-button class="rounded-full" @click="toView('right')">
-        <base-icon :icon="IconArrowRight"></base-icon>
+        <icon-arrow-right></icon-arrow-right>
       </custom-button>
     </div>
   </div>
