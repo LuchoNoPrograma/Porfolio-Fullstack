@@ -34,7 +34,7 @@ h1, h2, h3, h4, h5, h6 {
   @apply text-gray-200;
   font-weight: 600;
   line-height: 1.3333;
-  margin: 0 0 15px
+  margin: 0 0 1em;
 }
 
 nav li:hover,
@@ -43,4 +43,34 @@ nav li.router-link-exact-active {
   @apply text-emerald-400;
   cursor: pointer;
   transition: all 200ms ease-in;
+}
+
+.viewer {
+  &-zoom-in,
+  &-zoom-out,
+  &-one-to-one,
+  &-reset,
+  &-prev,
+  &-play,
+  &-next,
+  &-rotate-left,
+  &-rotate-right,
+  &-flip-horizontal,
+  &-flip-vertical,
+  &-fullscreen,
+  &-fullscreen-exit,
+  &-close {
+    &::before {
+      background-image: url('../images/icons.png');
+      background-repeat: no-repeat;
+      background-size: 280px;
+      color: transparent;
+      display: block;
+      font-size: 0;
+      height: 20px;
+      line-height: 0;
+      width: 20px;
+      scale: 1.25
+    }
+  }
 }
