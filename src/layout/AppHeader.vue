@@ -2,36 +2,9 @@
 import AppHeaderLink from "./AppHeaderLink.vue";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
+import {itemsNavigation} from "../data/ItemNavigation.ts";
 
 const router = useRouter();
-
-const items: { iconClass: string; title: string; to?: string }[] = [
-  {
-    iconClass: "icon-House",
-    title: "Sobre mi",
-    to: "/about-me",
-  },
-  {
-    iconClass: "icon-User",
-    title: "Resúmen",
-    to: "/resume",
-  },
-  {
-    iconClass: "icon-Bulb",
-    title: "Proyectos",
-    // to: "/portfolio",
-  },
-  {
-    iconClass: "icon-ClipboardText",
-    title: "Habilidades",
-    // to: "/blog",
-  },
-  {
-    iconClass: "icon-Imbox",
-    title: "Contactos",
-    // to: "/contact",
-  },
-];
 
 const menuResponsiveExpanded = ref<boolean>(false);
 const expandMenuResponsive = () => {
@@ -59,7 +32,7 @@ const expandMenuResponsive = () => {
           class="col-span-10 flex flex-wrap items-center justify-center gap-4 nav__menu-list"
         >
           <li
-            v-for="(item, index) in items"
+            v-for="(item, index) in itemsNavigation"
             :key="index"
             class="inline-block w-auto text-center rounded-xl nav__menu-list-item"
           >
@@ -85,7 +58,7 @@ const expandMenuResponsive = () => {
           class="col-span-10 gap-4 transition-all duration-300 ease-in overflow-hidden"
         >
           <li
-            v-for="(item, index) in items"
+            v-for="(item, index) in itemsNavigation"
             :key="index"
             class="w-auto text-center rounded-xl nav__menu-list-item"
           >
