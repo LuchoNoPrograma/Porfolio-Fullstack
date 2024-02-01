@@ -8,7 +8,7 @@ const props = defineProps({
   icon: {
     type: String
   },
-  variant: {
+  color: {
     type: String as PropType<"primary" | "secondary">,
     default: "primary",
   },
@@ -24,14 +24,14 @@ const onClick = () => {
 </script>
 
 <template>
-  <div v-ripple :class="variant" class="base-btn" @click="onClick" v-bind="$attrs">
+  <div v-ripple :class="color" class="base-btn" @click="onClick" v-bind="$attrs">
     <template v-if="to">
       <router-link :to="to">
         <slot> {{ props.title }}</slot>
       </router-link>
     </template>
     <template v-else>
-      <a v-bind="$attrs">
+      <a>
         <slot> {{ props.title }}</slot>
       </a>
     </template>
@@ -45,7 +45,11 @@ const onClick = () => {
 
 <style lang="scss" scoped>
 .base-btn {
-  @apply px-2 py-1 text-center cursor-pointer rounded-md transition-all ease-in duration-200 overflow-hidden;
+  @apply
+  px-2 py-1 rounded-md border border-transparent inline
+  overflow-hidden max-w-fit
+  text-center cursor-pointer
+  transition-all ease-in duration-200;
 }
 
 .primary {
@@ -54,7 +58,7 @@ const onClick = () => {
 }
 
 .primary:hover {
-  @apply bg-cyan-900 text-white;
+  @apply bg-cyan-900 border-white text-white;
   box-shadow: inset 140px 0 0 0 theme("colors.cyan.900");
 }
 
