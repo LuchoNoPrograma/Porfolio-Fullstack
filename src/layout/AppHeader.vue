@@ -2,7 +2,7 @@
 import AppHeaderLink from "./AppHeaderLink.vue";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
-import {itemsNavigation} from "../data/ItemNavigation.ts";
+import { itemsNavigation } from "../data/ItemNavigation.ts";
 
 const router = useRouter();
 
@@ -37,9 +37,9 @@ const expandMenuResponsive = () => {
             class="inline-block w-auto text-center rounded-xl nav__menu-list-item"
           >
             <app-header-link
-              :icon-class="item.iconClass"
-              :title="item.title"
-              :to="item.to"
+              :icon-class="item?.iconClass"
+              :title="item?.title"
+              :to="item?.to"
             ></app-header-link>
           </li>
         </ul>
@@ -63,9 +63,9 @@ const expandMenuResponsive = () => {
             class="w-auto text-center rounded-xl nav__menu-list-item"
           >
             <app-header-link
-              :icon-class="item.iconClass"
-              :title="item.title"
-              :to="item.to"
+              :icon-class="item?.iconClass"
+              :title="item?.title"
+              :to="item?.to"
               position-icon="left"
               @click="menuResponsiveExpanded = false"
             ></app-header-link>
