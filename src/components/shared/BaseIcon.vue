@@ -27,10 +27,6 @@ const BaseIcon = defineAsyncComponent(
 
 <style lang="scss" scoped>
 svg{
-  @apply h-fit inline fill-emerald-200;
-}
-
-svg path{
-  @apply fill-emerald-200;
+  @apply h-fit inline;
 }
 </style>
