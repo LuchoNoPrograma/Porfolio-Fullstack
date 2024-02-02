@@ -4,7 +4,7 @@ export type ProjectType = {
   title: string;
   description: string;
   tag: string;
-  techs: {name: string, icon: string, use: string}[];
+  techs: {name: string, use: string}[];
   srcImg: any[];
   linkWebsite: string;
   linkRepository: string;
