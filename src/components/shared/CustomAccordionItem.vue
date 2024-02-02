@@ -86,7 +86,7 @@ const toggleAccordion = () => {
 
 .expanded {
   opacity: 1;
-  max-height: 100px;
+  max-height: 180px;
   transition: all 400ms linear;
 }
 
