@@ -14,18 +14,24 @@ export const useProjectsStore = defineStore("projects", () => {
             title: "Tienda Backend",
             description: `Desarrollé una aplicación Backend API REST, diseñada para cumplir con las reglas de negocio de un supermercado sencillo.
      Implementado con Swagger para generar una documentación clara y detallada.
-     Además, incorporé un entorno de Test con JUnit mediante contenedores Docker`,
+     Además, incorporé un entorno de Test con JUnit mediante contenedores Docker.`,
             tag: "Backend",
             techs: [
               {
                 name: "Java",
-                icon: "java",
-                use: "Lorem ipsum des it amet Lorem ipsum des it ametLorem ipsum des it amet",
+                use: "Utilizado como lenguaje principal para desarrollar la lógica de negocio.",
               },
               {
                 name: "Spring Boot",
-                icon: "spring-boot",
-                use: "Lorem ipsum des it amet Lorem ipsum des it amet Lorem ipsum des it amet",
+                use: "Framework seleccionado para la construcción ágil y eficiente de la API REST.",
+              },
+              {
+                name: "PostgreSQL",
+                use: "Empleado como sistema de gestión de bases de datos para el almacenamiento de datos relacionales.",
+              },
+              {
+                name: "Docker",
+                use: "Implementado como contenedor para las pruebas, permitiendo la creación de un entorno aislado y reproducible para el testing.",
               },
             ],
             srcImg: [
