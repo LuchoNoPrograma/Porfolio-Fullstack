@@ -24,9 +24,13 @@ onMounted(async () => {
 
 <template>
   <div class="grid grid-cols-12 gap-4">
+    <div class="col-span-12">
+      <h3 class="text-3xl text-emerald-300 mb-0">Proyectos</h3>
+    </div>
+
     <template v-for="(item, index) in projectItems" :key="index">
       <base-card
-        class="base-card col-span-12 lg:col-span-6 rounded-md transition-transform duration-100 ease-in hover:scale-102 cursor-pointer"
+        class="base-card col-span-12 lg:col-span-6 rounded-md transition-transform duration-100 ease-in hover:scale-102 cursor-pointer shadow-sm shadow-emerald-400/30"
         color="secondary"
         @click="toDetail(item)"
       >
