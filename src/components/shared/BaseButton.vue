@@ -40,7 +40,7 @@ const onClick = () => {
       </router-link>
     </template>
     <template v-else>
-      <a :href="props?.href" :download="props?.download" :target="props?.target">
+      <a>
         <slot> {{ props.title }}</slot>
       </a>
     </template>
