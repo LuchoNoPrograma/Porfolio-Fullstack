@@ -23,7 +23,7 @@ const skills: { title: string; tech: string; experience: string }[] = [
 const hrefWindow = (url: string) => window.open(url, "_blank");
 const downloadCV = () => {
   const link = document.createElement("a");
-  link.href = "/src/assets/pdf/FullstackDeveloper(Vue-Java)CV.pdf";
+  link.href = "/pdf/FullstackDeveloper(Vue-Java)CV.pdf";
   link.target = "_blank";
   link.download = "FullstackDeveloper(Vue-Java)CV.pdf";
 
