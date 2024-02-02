@@ -1,10 +1,10 @@
 n
 <script lang="ts" setup>
-import {useRouter} from "vue-router";
-import {useProjectsStore} from "../store/ProjectsStore.ts";
-import {ProjectType} from "../types/DataType.ts";
-import {onMounted, ref} from "vue";
-import {projectsImageDirectory, publicImagesProjectsDir} from "../data/Constants.ts";
+import { useRouter } from "vue-router";
+import { useProjectsStore } from "../store/ProjectsStore.ts";
+import { ProjectType } from "../types/DataType.ts";
+import { onMounted, ref } from "vue";
+import { publicImagesProjectsDir } from "../data/Constants.ts";
 import moment from "moment";
 import BaseChip from "../components/shared/BaseChip.vue";
 
@@ -13,7 +13,7 @@ const projectStore = useProjectsStore();
 
 const projectId: number = +router.currentRoute.value.params.projectId[0];
 const projectSelected = ref<ProjectType>();
-const bindImage = (src: string) => publicImagesProjectsDir+src;
+const bindImage = (src: string) => publicImagesProjectsDir + src;
 
 const formatDate = (date: Date) => moment(date).format("DD/MM/yyyy");
 
@@ -23,7 +23,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <section class="container grid grid-cols-12 gap-4 overflow-hidden">
+  <section class="container grid grid-cols-12 gap-6 overflow-hidden">
     <div
       v-viewer.static
       class="col-span-12 lg:col-span-6 xl:col-span-6 cursor-pointer"
@@ -81,48 +81,51 @@ onMounted(async () => {
             </a>
           </div>
         </div>
-
       </div>
     </div>
 
     <div class="col-span-12">
-      <h4 class="text-xl mb-0 text-emerald-300">Descripción del proyecto</h4>
+      <h4 class="text-xl text-emerald-300 mb-1">Descripción del proyecto</h4>
       <p>
         {{ projectSelected?.description }}
       </p>
-      <img alt="" src=""/>
+      <img alt="" src="" />
 
       <figure>
         <h4 class="text-xl mb-1 text-emerald-300">Herramientas</h4>
-        <div class="grid grid-cols-12 p-2 border border-emerald-300 rounded-lg">
-          <h5 class="col-span-4 sm:col-span-4 xs:col-span-6 text-emerald-300">Tecnologia</h5>
-          <h5 class="col-span-8 sm:col-span-8 xs:col-span-6 text-emerald-300">Uso</h5>
 
-          <template
+        <table class="table border-collapse border border-emerald-400 rounded-lg">
+          <thead>
+          <tr class="border-b border-emerald-400">
+            <td class="text-emerald-300 p-2">Tecnologia</td>
+            <td class="text-emerald-300 p-2">Uso</td>
+          </tr>
+          </thead>
+          <tbody>
+          <tr
             v-for="(tech, techIndex) in projectSelected?.techs"
             :key="techIndex"
+            class="border-b border-emerald-400"
           >
-            <div class="col-span-4 sm:col-span-4 xs:col-span-6">
+            <td class="min-w-36 text-center p-2">
               <base-chip :title="tech.name"></base-chip>
-            </div>
-
-            <p class="col-span-8 sm:col-span-8 xs:col-span-6">
-              {{ tech.use }}
-            </p>
-          </template>
-        </div>
+            </td>
+            <td class="text-gray-300 p-2">{{ tech.use }}</td>
+          </tr>
+          </tbody>
+        </table>
       </figure>
     </div>
 
-    <h4 class="col-span-12 text-xl mb-0 text-emerald-300">Galeria</h4>
     <div class="col-span-12">
+      <h4 class="text-xl mb-1 text-emerald-300">Galeria</h4>
       <div v-viewer.static class="flex flex-wrap gap-2">
         <img
           v-for="(src, imgIndex) in projectSelected?.srcImg.map((srcImg) =>
             bindImage(srcImg),
           )"
           :key="src"
-          :alt="'image'+(imgIndex+1)"
+          :alt="'image' + (imgIndex + 1)"
           :src="src"
           class="cursor-pointer"
           width="30%"
