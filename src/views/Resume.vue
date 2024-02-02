@@ -6,32 +6,46 @@ import AppMainPagination from "../layout/AppMainPagination.vue";
 
 const itemsExperience = ref<ItemAccordion[]>([
   {
-    title: "Posgrado UAP (Octubre-2022 a Diciembre-2023)",
-    content: "Diseño, desarrollo, despliegue y mantenimiento de la aplicación web del instituto, durante este periodo",
-    chips: [{ title: "Java + Spring Boot" }, { title: "Typescript + Vue" }],
+    title: "Posgrado UAP (Octubre 2022 - Diciembre 2023)",
+    content:
+      "Participe activamente en el análisis de requerimientos y colabore en el desarrollo de servicios, REST API, pruebas unitarias e integradas," +
+      " implementación de interfaces de usuario, consumo de API y despliegue de la aplicación.",
+    chips: [
+      { title: "Java + Spring Boot" },
+      { title: "Typescript + Vue" },
+      { title: "PostgreSQL" },
+      { title: "Docker" },
+    ],
   },
   {
-    title: "Universidad Amazónica de Pando (Mayo-2022 a Octubre-2022)",
+    title: "Universidad Amazónica de Pando (Mayo 2023 - Octubre 2023)",
     content:
-      "Mantenimiento de Aplicaciones Web desplegadas con Java + Spring MVC",
-    chips: [{ title: "Java + Spring Framework" }],
+      "Mantenimiento de paginas web inforamtivas y Aplicaciones Web desplegadas con Java + Spring MVC",
+    chips: [{ title: "Java + Spring Framework" }, { title: "HTML, CSS, JS" }],
+  },
+  {
+    title: "Freelancer (Enero 2022 - Actualidad)",
+    content:
+      "Obtención de requerimientos del cliente, desarrollo de la base de datos, servicios, interfaces gráficas del usuario que cumplan " +
+      "con las espectativas del cliente. Desarrollo de landing pages a petición del cliente",
+    chips: [
+      { title: "Java + Spring Boot" },
+      { title: "HTML, CSS, JS" },
+      { title: "PostgreSQL" },
+    ]
   },
 ]);
 
 const itemsEducation = ref<ItemAccordion[]>([
   {
-    title: "Bootcamp Oracle ONE - Alura (Enero-2024)",
-    content:
-      "Actualmente me encuentro cursando el bootcamp de Desarrollo web Backend con Java + Spring Boot",
-  },
-  {
-    title: "Universidad Amazónica de Pando (Enero-2020)",
+    title: "Universidad Amazónica de Pando (Marzo 2021)",
     content:
       "En proceso de obtener la licenciatura en la carrera de Ingeniería de Sistemas",
   },
   {
-    title: "Curso Tecnico de Programación (Agosto-2019 a Noviembre-2019)",
-    content: "Lenguajes HTML + CSS Y JS enfocado en desarrollo de landing pages",
+    title: "Curso técnico de Programación (Mayo 2022 - Octubre 2022)",
+    content:
+      "Impartido por la Universidad Amazónica de Pando, enfocado en desarrollo de aplicaciónes web empresariales con HTML, CSS, JS y Java Spring Boot.",
   },
 ]);
 
@@ -47,7 +61,7 @@ onMounted(() => {
   }, 400);
 
   setTimeout(() => {
-    itemsEducation.value[2].expanded = true;
+    itemsExperience.value[2].expanded = true;
   }, 500);
 });
 </script>
