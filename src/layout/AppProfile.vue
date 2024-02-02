@@ -60,7 +60,7 @@ const downloadCV = () => {
       </h4>
       <p class="text-md">
         <span class="text-cyan-300 drop-shadow-glow"
-          >+1 Año de experiencia</span
+          >+2 Años de experiencia</span
         >
         desarrollando software empresarial.
       </p>
