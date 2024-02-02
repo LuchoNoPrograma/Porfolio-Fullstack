@@ -1,4 +1,4 @@
-<script setup lang="ts">
+`<script setup lang="ts">
 import {getCurrentInstance} from "@vue/runtime-core";
 
 const props = defineProps({

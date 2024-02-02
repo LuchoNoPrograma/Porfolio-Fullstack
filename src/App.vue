@@ -5,7 +5,6 @@ import AppFooter from "./layout/AppFooter.vue";
 import AppMain from "./layout/AppMain.vue";
 import { ArrowUpIcon } from "vue-tabler-icons";
 
-/*document.querySelector('body').classList.add("xs:px-4")*/
 </script>
 
 <template>

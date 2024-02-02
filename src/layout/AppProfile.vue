@@ -20,31 +20,14 @@ const skills: { title: string; tech: string; experience: string }[] = [
   },
 ];
 
-const hrefWindow = (url: string) => window.open(url, '_blank')
+const hrefWindow = (url: string) => window.open(url, "_blank");
 </script>
 
 <template>
   <div
-    class="profile grid grid-cols-12 gap-2 bg-slate-800 p-4 overflow-hidden rounded-tl-3xl rounded-tr-3xl w-full"
+    class="profile sticky grid grid-cols-12 gap-2 bg-slate-800 p-4 overflow-hidden rounded-tl-3xl rounded-tr-3xl w-full"
     v-bind="$attrs"
   >
-    <!--    <div class="profile-header absolute left-0 top-0 w-full">
-          <svg
-            class="svg-header svg1"
-            preserveAspectRatio="none"
-            viewBox="0 0 100 100"
-          >
-            <polygon opacity=".65" points="0 20, 100 20, 0 100"></polygon>
-          </svg>
-          <svg
-            class="svg-header svg2"
-            preserveAspectRatio="none"
-            viewBox="0 0 100 120"
-          >
-            <polygon opacity=".8" points="0 20, 100 20, 15 120"></polygon>
-          </svg>
-        </div>-->
-
     <div class="profile-info col-span-7">
       <div class="profile-info__overlay">
         <h3 class="text-3xl">
@@ -84,7 +67,11 @@ const hrefWindow = (url: string) => window.open(url, '_blank')
           class="cursor-pointer transition-transform duration-200 ease-in hover:scale-110"
           color="secondary"
           title="Linkedin"
-          @click="hrefWindow('https://www.linkedin.com/in/luis-alberto-morales-villaca/')"
+          @click="
+            hrefWindow(
+              'https://www.linkedin.com/in/luis-alberto-morales-villaca/',
+            )
+          "
         >
           <template #prepend-icon>
             <span>
@@ -126,26 +113,16 @@ const hrefWindow = (url: string) => window.open(url, '_blank')
             </span>
           </template>
         </base-chip>
-        <!--        <a
-                  class="fac profile-info__link profile-info__link&#45;&#45;linkedin flex justify-center items-center text-white"
-                  href="https://www.linkedin.com/in/luis-alberto-morales-villaca/"
-                  target="_blank"
-                >
-        
-                </a>
-                <a
-                  class="twi profile-info__link profile-info__link&#45;&#45;github flex justify-center items-center"
-                  href="https://github.com/LuchoNoPrograma"
-                  target="_blank"
-                >
-        
-                </a>-->
       </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+.profile {
+  @apply sticky top-4 z-20;
+}
+
 .profile .svg-header {
   height: 150px;
   fill: theme("colors.emerald.400");
