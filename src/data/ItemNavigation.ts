@@ -18,12 +18,12 @@ export const itemsNavigation: ItemNavigationType[] = [
   },
   {
     iconClass: "icon-ClipboardText",
-    title: "Habilidades",
-    // to: "/blog",
+    title: "Tecnologias",
+    to: "/tech-skills",
   },
-  {
+/*  {
     iconClass: "icon-Imbox",
     title: "Contactos",
     // to: "/contact",
-  },
+  }*/,
 ];

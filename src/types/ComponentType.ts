@@ -4,3 +4,8 @@ export type ItemAccordion = {
   expanded?: boolean
   chips?: {title: string}[]
 }
+
+export type TechSkillsCardItem = {
+  name: string,
+  icon: any
+}
