@@ -17,4 +17,8 @@ export const MainRoutes: RouteRecordRaw[] = [{
   path: '/projects/:projectId',
   component: () => import('../views/ProjectsDetail.vue'),
   name: 'ProjectsDetail'
+}, {
+  path: '/tech-skills',
+  component: () => import('../views/TechSkills.vue'),
+  name: 'TechSkills'
 }]
