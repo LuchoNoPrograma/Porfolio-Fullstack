@@ -32,8 +32,8 @@ const props = defineProps({
       { 'bg-emerald-850': props.color === 'primary' },
       { 'bg-cyan-850': props.color === 'secondary' },
       { border: props.border },
-      { 'border-cyan-300': props.color === 'primary' },
-      { 'border-emerald-200': props.color === 'secondary' },
+      { 'border-emerald-300': props.color === 'primary' },
+      { 'border-cyan-200': props.color === 'secondary' },
     ]"
     class="px-3 w-fit rounded-2xl flex items-center gap-1"
     v-bind="$attrs"
