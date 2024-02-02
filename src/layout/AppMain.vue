@@ -17,7 +17,6 @@ const toView = (direction: "left" | "right") => {
     actual >= links.length - 1 ? (actual = 0) : actual++;
   }
 
-  console.log(links[actual], actual);
   router.push(links[actual]);
 };
 </script>

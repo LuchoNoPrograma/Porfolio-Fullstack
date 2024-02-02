@@ -21,9 +21,4 @@ export const itemsNavigation: ItemNavigationType[] = [
     title: "Tecnologias",
     to: "/tech-skills",
   },
-/*  {
-    iconClass: "icon-Imbox",
-    title: "Contactos",
-    // to: "/contact",
-  }*/,
 ];
