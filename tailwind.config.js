@@ -23,7 +23,7 @@ export default {
           600: "#41a275",
           400: "#42b883", //#primary vue color
           300: "#4dc58e",
-          200: "#5df8b1",
+          200: "#54f1a7",
         },
         cyan: {
           ...colors.cyan,
