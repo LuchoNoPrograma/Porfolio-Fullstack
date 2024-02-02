@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import CustomButton from "../components/shared/BaseButton.vue";
+import BaseButton from "../components/shared/BaseButton.vue";
 import BaseChip from "../components/shared/BaseChip.vue";
 
 const skills: { title: string; tech: string; experience: string }[] = [
@@ -21,6 +21,16 @@ const skills: { title: string; tech: string; experience: string }[] = [
 ];
 
 const hrefWindow = (url: string) => window.open(url, "_blank");
+const downloadCV = () => {
+  const link = document.createElement("a");
+  link.href = "/src/assets/pdf/FullstackDeveloper(Vue-Java)CV.pdf";
+  link.target = "_blank";
+  link.download = "FullstackDeveloper(Vue-Java)CV.pdf";
+
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
 </script>
 
 <template>
@@ -56,7 +66,7 @@ const hrefWindow = (url: string) => window.open(url, "_blank");
       </p>
 
       <div class="profile-footer flex items-center gap-1 mb-3">
-        <custom-button icon="icon-Download">Descargar CV</custom-button>
+        <base-button icon="icon-Download" href="/pdf/FullstackDeveloper(Vue-Java)CV.pdf" target="_blank" download="FullstackDeveloper(Vue-Java)CV.pdf">Descargar CV</base-button>
       </div>
     </div>
 
