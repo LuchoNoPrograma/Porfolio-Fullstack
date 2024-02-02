@@ -6,6 +6,7 @@ import { useRouter } from "vue-router";
 import { ProjectType } from "../types/DataType.ts";
 import { onMounted, ref } from "vue";
 import { publicImagesProjectsDir } from "../data/Constants.ts";
+import AppMainPagination from "../layout/AppMainPagination.vue";
 
 const projectStore = useProjectsStore();
 const router = useRouter();
@@ -58,6 +59,10 @@ onMounted(async () => {
         </template>
       </base-card>
     </template>
+
+    <div class="col-span-12 self-center">
+      <app-main-pagination :actual="2"></app-main-pagination>
+    </div>
   </div>
 </template>
 

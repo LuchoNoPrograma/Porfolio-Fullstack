@@ -1,24 +1,5 @@
 <script lang="ts" setup>
-import { RouterView, useRouter } from "vue-router";
-import { IconArrowLeft, IconArrowRight } from "@tabler/icons-vue";
-import BaseIcon from "../components/shared/BaseIcon.vue";
-import CustomButton from "../components/shared/BaseButton.vue";
-import {itemsNavigation} from "../data/ItemNavigation.ts";
-import {ItemNavigationType} from "../types/DataType.ts";
-
-const router = useRouter();
-const links: string[] = itemsNavigation.map((item: ItemNavigationType) => item.to?? "/about-me");
-let actual: number = 0;
-
-const toView = (direction: "left" | "right") => {
-  if (direction === "left") {
-    actual <= 0 ? (actual = links.length - 1) : actual--;
-  } else {
-    actual >= links.length - 1 ? (actual = 0) : actual++;
-  }
-
-  router.push(links[actual]);
-};
+import { RouterView } from "vue-router";
 </script>
 
 <template>
@@ -28,15 +9,6 @@ const toView = (direction: "left" | "right") => {
         <component :is="Component" :key="$route.path"></component>
       </transition>
     </router-view>
-
-    <div class="mt-6 flex justify-center gap-2">
-      <custom-button class="rounded-full" @click="toView('left')">
-        <icon-arrow-left></icon-arrow-left>
-      </custom-button>
-      <custom-button class="rounded-full" @click="toView('right')">
-        <icon-arrow-right></icon-arrow-right>
-      </custom-button>
-    </div>
   </div>
 </template>
 

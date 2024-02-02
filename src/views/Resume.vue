@@ -2,6 +2,21 @@
 import type { ItemAccordion } from "../types/ComponentType.ts";
 import { onMounted, ref } from "vue";
 import CustomAccordion from "../components/shared/CustomAccordion.vue";
+import AppMainPagination from "../layout/AppMainPagination.vue";
+
+const itemsExperience = ref<ItemAccordion[]>([
+  {
+    title: "Posgrado UAP (Octubre-2022 a Diciembre-2023)",
+    content: "Diseño, desarrollo, despliegue y mantenimiento de la aplicación web del instituto, durante este periodo",
+    chips: [{ title: "Java + Spring Boot" }, { title: "Typescript + Vue" }],
+  },
+  {
+    title: "Universidad Amazónica de Pando (Mayo-2022 a Octubre-2022)",
+    content:
+      "Mantenimiento de Aplicaciones Web desplegadas con Java + Spring MVC",
+    chips: [{ title: "Java + Spring Framework" }],
+  },
+]);
 
 const itemsEducation = ref<ItemAccordion[]>([
   {
@@ -16,21 +31,7 @@ const itemsEducation = ref<ItemAccordion[]>([
   },
   {
     title: "Curso Tecnico de Programación (Agosto-2019 a Noviembre-2019)",
-    content: "Curso técnico de programación HTML + CSS Y JS",
-  },
-]);
-
-const itemsExperience = ref<ItemAccordion[]>([
-  {
-    title: "Posgrado UAP (Octubre-2022 a Diciembre-2023)",
-    content: "Desarrollo Fullstack y Despliegue de Aplicacion Web SIAAP",
-    chips: [{ title: "Java + Spring Boot" }, { title: "Typescript + Vue" }],
-  },
-  {
-    title: "Universidad Amazónica de Pando (Mayo-2022 a Octubre-2022)",
-    content:
-      "Mantenimiento de Aplicaciones Web desplegadas con Java + Spring MVC",
-    chips: [{ title: "Java + Spring Framework" }],
+    content: "Lenguajes HTML + CSS Y JS enfocado en desarrollo de landing pages",
   },
 ]);
 
@@ -71,6 +72,10 @@ onMounted(() => {
         <div class="title__img"></div>
         <custom-accordion :items="itemsEducation"></custom-accordion>
       </div>
+    </div>
+
+    <div class="col-span-12 self-center">
+      <app-main-pagination :actual="1"></app-main-pagination>
     </div>
   </div>
 </template>

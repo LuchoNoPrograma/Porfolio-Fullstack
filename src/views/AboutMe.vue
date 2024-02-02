@@ -3,6 +3,7 @@ import BaseCard from "../components/shared/BaseCard.vue";
 import type { TablerIconComponent } from "vue-tabler-icons";
 import { DatabaseExportIcon, WorldWwwIcon } from "vue-tabler-icons";
 import { markRaw, reactive } from "vue";
+import AppMainPagination from "../layout/AppMainPagination.vue";
 
 type ItemCard = {
   title: string;
@@ -63,7 +64,6 @@ const focusItem = (item: ItemCardWithFocus, focused: boolean) => {
       <p>
         Encontrarás mis proyectos personales que reflejan mi creatividad,
         dedicación y experiencia.
-        <!--        🚀💻-->
       </p>
     </div>
 
@@ -105,6 +105,10 @@ const focusItem = (item: ItemCardWithFocus, focused: boolean) => {
           </template>
         </base-card>
       </div>
+    </div>
+
+    <div class="col-span-12 self-center">
+      <app-main-pagination :actual="0"></app-main-pagination>
     </div>
   </div>
 </template>
