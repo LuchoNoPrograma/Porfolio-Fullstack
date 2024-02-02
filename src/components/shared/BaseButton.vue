@@ -15,6 +15,15 @@ const props = defineProps({
   to: {
     type: String
   },
+  href: {
+    type: String
+  },
+  download: {
+    type: String
+  },
+  target: {
+    type: String
+  }
 });
 
 const emits = defineEmits(['on-click']);
@@ -31,7 +40,7 @@ const onClick = () => {
       </router-link>
     </template>
     <template v-else>
-      <a>
+      <a :href="props?.href" :download="props?.download" :target="props?.target">
         <slot> {{ props.title }}</slot>
       </a>
     </template>
