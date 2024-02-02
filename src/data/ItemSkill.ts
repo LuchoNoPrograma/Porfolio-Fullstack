@@ -50,6 +50,10 @@ const itemsTools: TechSkillsCardItem[] = [
     name: "Docker",
     icon: "docker",
   },
+  {
+    name: "JUnit 5",
+    icon: "JUnit"
+  }
 ];
 
 export const itemsSkills: { title: string; items: TechSkillsCardItem[] }[] = [
@@ -66,7 +70,7 @@ export const itemsSkills: { title: string; items: TechSkillsCardItem[] }[] = [
     items: itemsBackend,
   },
   {
-    title: "Tools",
+    title: "Herramientas",
     items: itemsTools,
   },
 ];
