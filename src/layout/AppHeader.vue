@@ -15,21 +15,21 @@ const expandMenuResponsive = () => {
 <template>
   <header
     id="app-header"
-    class="shadow-lg shadow-slate-800 bg-cyan-900 rounded-xl"
+    class="shadow-lg shadow-slate-800 bg-cyan-900 rounded-xl min-h-12"
   >
-    <div class="min-h-10">
+    <div>
       <nav class="grid grid-cols-12">
         <a
           id="nav__menu-toggle"
           v-ripple
-          class="hidden bg-emerald-400 text-2xl text-white transition-colors duration-300 ease-in-out"
+          class="hidden bg-emerald-400 text-2xl text-white transition-colors duration-300 ease-in-out h-12"
           href="javascript:void(0)"
           @click="expandMenuResponsive"
         >
           <i class="icofont-navigation-menu"></i> <span>Menu</span>
         </a>
         <ul
-          class="col-span-10 flex flex-wrap items-center justify-center gap-4 nav__menu-list"
+          class="col-span-12 flex flex-wrap items-center justify-center gap-4 nav__menu-list"
         >
           <li
             v-for="(item, index) in itemsNavigation"
@@ -43,19 +43,13 @@ const expandMenuResponsive = () => {
             ></app-header-link>
           </li>
         </ul>
-        <a
-          v-ripple
-          class="sidebarToggler col-span-2 flex justify-center items-center bg-slate-800 transition-all duration-300 ease-in-out hover:bg-emerald-400 hover:text-white"
-        >
-          <i class="icon icon-Menu text-4xl"></i>
-        </a>
       </nav>
       <div
         class="nav__menu-toggle-wrapper sticky left-0 -bottom-48 bg-slate-800 w-full z-10"
       >
         <ul
           :class="menuResponsiveExpanded ? 'expanded' : 'collapsed'"
-          class="col-span-10 gap-4 transition-all duration-300 ease-in overflow-hidden"
+          class="gap-2 transition-all duration-300 ease-in overflow-hidden"
         >
           <li
             v-for="(item, index) in itemsNavigation"
@@ -83,7 +77,7 @@ const expandMenuResponsive = () => {
 
 @media (max-width: 800px) {
   #nav__menu-toggle {
-    @apply col-span-10 flex justify-center items-center gap-2;
+    @apply col-span-12 flex justify-center items-center gap-2 rounded-lg;
     max-height: 100px;
     transition: all 300ms ease-in;
   }
@@ -93,12 +87,10 @@ const expandMenuResponsive = () => {
   }
 }
 
-.nav__menu-list-item {
-  min-width: 6em;
-}
 
 .nav__menu-toggle-wrapper {
   .expanded {
+    @apply border border-gray-200;
     max-height: 600px;
   }
 
@@ -107,8 +99,4 @@ const expandMenuResponsive = () => {
   }
 }
 
-.sidebarToggler {
-  width: 100%;
-  height: 90px;
-}
 </style>
