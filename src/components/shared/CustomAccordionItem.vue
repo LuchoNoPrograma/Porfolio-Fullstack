@@ -22,16 +22,16 @@ const toggleAccordion = () => {
 </script>
 
 <template>
-  <div class="mt-4 ml-5 relative">
+  <div class="mt-6 ml-5 relative">
     <h2 class="mb-2" @click="toggleAccordion">
       <button
         :aria-controls="'accordion-flush-body-' + index"
         :aria-expanded="!item?.expanded"
-        class="w-full flex items-center justify-between gap-3 py-1 font-semibold text-gray-300 text-left border-b border-emerald-400 z-0 cursor-pointer relative"
+        class="w-full flex items-center justify-between gap-3 py-1 font-semibold text-gray-300 text-left border-b border-emerald-400 z-0 cursor-pointer relative text-lg"
         type="button"
       >
         <span
-          class="dot absolute bottom-1 transform -translate-x-1/2 h-4 w-4 bg-emerald-400 rounded-full"
+          class="dot absolute bottom-2 transform -translate-x-1/2 h-4 w-4 bg-emerald-400 rounded-full"
         ></span>
         <span class="text-gray-200">{{ item.title }}</span>
         <svg
@@ -59,9 +59,12 @@ const toggleAccordion = () => {
       :class="item.expanded ? 'expanded' : 'collapsed'"
       class="pb-2 relative"
     >
+      <span class="text-gray-300">{{ item.content }}</span>
+
+      <h5 class="my-2" v-if="item.chips">Stack:</h5>
       <div
         v-if="item.chips"
-        class="accordion-content__container-chip w-full flex justify-start flex-wrap gap-2 mb-1 ml-1"
+        class="accordion-content__container-chip w-full flex justify-start flex-wrap gap-2 "
       >
         <base-chip
           v-for="(chip, index) in item.chips"
@@ -71,7 +74,6 @@ const toggleAccordion = () => {
         >
         </base-chip>
       </div>
-      <span class="text-gray-300">{{ item.content }}</span>
     </div>
   </div>
 </template>
@@ -80,13 +82,13 @@ const toggleAccordion = () => {
 .collapsed {
   opacity: 0;
   max-height: 0;
-  transition: all 400ms linear;
+  transition: all 300ms linear;
   overflow: hidden;
 }
 
 .expanded {
   opacity: 1;
-  max-height: 200px;
+  max-height: 400px;
   transition: all 400ms linear;
 }
 
@@ -95,6 +97,6 @@ const toggleAccordion = () => {
 }
 
 .dot {
-  left: -0.875em;
+  left: -0.625em;
 }
 </style>

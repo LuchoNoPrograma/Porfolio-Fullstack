@@ -35,7 +35,7 @@ const downloadCV = () => {
 
 <template>
   <div
-    class="profile sticky grid grid-cols-12 gap-2 bg-slate-800 p-4 overflow-hidden rounded-tl-3xl rounded-tr-3xl w-full"
+    class="profile sticky grid grid-cols-12 gap-2 bg-slate-800 p-4 overflow-hidden rounded-xl w-full shadow-sm shadow-black"
     v-bind="$attrs"
   >
     <div class="profile-info col-span-7">

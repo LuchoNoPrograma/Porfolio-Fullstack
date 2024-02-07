@@ -3,7 +3,7 @@ import { RouterView } from "vue-router";
 </script>
 
 <template>
-  <div class="main bg-slate-800 rounded-tl-xl rounded-tr-xl p-5">
+  <div class="main bg-slate-800 rounded-tl-xl rounded-tr-xl p-5 shadow-md shadow-black">
     <router-view id="router-view" v-slot="{ Component }">
       <transition mode="out-in" name="slide">
         <component :is="Component" :key="$route.path"></component>

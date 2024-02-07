@@ -8,8 +8,8 @@ const itemsExperience = ref<ItemAccordion[]>([
   {
     title: "Posgrado UAP (Octubre 2022 - Diciembre 2023)",
     content:
-      "Participe activamente en el análisis de requerimientos y colabore en el desarrollo de servicios, REST API, pruebas unitarias e integradas," +
-      " implementación de interfaces de usuario, consumo de API y despliegue de la aplicación.",
+      "Participe activamente en el análisis de requerimientos y colabore en el desarrollo de servicios, API REST, pruebas unitarias e integradas," +
+      " implementación de interfaces de usuario, consumo de API y despliegue de la aplicación oficial del instituto.",
     chips: [
       { title: "Java + Spring Boot" },
       { title: "Typescript + Vue" },
@@ -20,14 +20,14 @@ const itemsExperience = ref<ItemAccordion[]>([
   {
     title: "Universidad Amazónica de Pando (Mayo 2023 - Octubre 2023)",
     content:
-      "Mantenimiento de paginas web inforamtivas y Aplicaciones Web desplegadas con Java + Spring MVC",
+      "Mantenimiento de paginas web informativas y Aplicaciones Web desplegadas con Java + Spring MVC",
     chips: [{ title: "Java + Spring Framework" }, { title: "HTML, CSS, JS" }],
   },
   {
     title: "Freelancer (Enero 2022 - Actualidad)",
     content:
-      "Obtención de requerimientos del cliente, desarrollo de la base de datos, servicios, interfaces gráficas del usuario que cumplan " +
-      "con las espectativas del cliente. Desarrollo de landing pages a petición del cliente",
+      "Obtención de requerimientos del cliente, desarrollo de la base de datos, servicios e interfaces gráficas de usuario que cumplan " +
+      "con las espectativas del cliente. También se incluye en el desarrollo de Landing Pages a petición del cliente",
     chips: [
       { title: "Java + Spring Boot" },
       { title: "HTML, CSS, JS" },

@@ -12,7 +12,7 @@ import { ArrowUpIcon } from "vue-tabler-icons";
     class="container container-md mx-auto md:px-4"
     style="height: 100vh"
   >
-    <div class="grid grid-cols-12 gap-8 w-full">
+    <div class="grid grid-cols-12 gap-8 w-full pb-6">
       <div class="lg:col-span-3 md:col-span-5 sm:col-span-12 col-span-12">
         <app-profile></app-profile>
       </div>
@@ -21,7 +21,7 @@ import { ArrowUpIcon } from "vue-tabler-icons";
       >
         <div id="page-top"></div>
         <app-header></app-header>
-        <div class="mt-8 shadow-md shadow-black">
+        <div class="mt-8">
           <app-main></app-main>
           <app-footer></app-footer>
         </div>

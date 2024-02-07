@@ -18,15 +18,16 @@ body {
   background: url(../images/bg-image.png) no-repeat fixed top center #34313f;
   font-family: jost, sans-serif;
   font-weight: 400;
-  font-size: 14px;
   line-height: 24px;
   letter-spacing: 0;
   color: #808080;
   padding: 1.25em 0.5em 2em 0.5em;
+  @apply text-base;
 }
 
 p {
   @apply text-gray-300;
+  @apply text-base;
   margin: 0 0 15px
 }
 
@@ -35,6 +36,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   line-height: 1.3333;
   margin: 0 0 1em;
+  @apply text-base
 }
 
 nav li:hover,
