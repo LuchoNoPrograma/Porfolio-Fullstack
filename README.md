@@ -20,17 +20,17 @@ Requerido tener Node.js
 
 1. **Clonar el Repositorio**:
 
-   ```bash
-   git clone https://github.com/tu-usuario/portfolio.git
-   ```
+```bash
+git clone https://github.com/tu-usuario/portfolio.git
+```
    
 2. Instalar Dependencias:
 
-   ```bash
-      npm install
-   ```
+```bash
+npm install
+```
 
 3. Iniciar el Proyecto:
-   ```bash
-      npm run dev
-   ```
+```bash
+npm run dev
+```
