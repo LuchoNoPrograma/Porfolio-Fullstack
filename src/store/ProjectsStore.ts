@@ -39,10 +39,12 @@ export const useProjectsStore = defineStore("projects", () => {
               "/Tienda/Swagger_2.png",
               "/Tienda/Swagger_3.png",
               "/Tienda/Swagger_4.png",
+              "/Tienda/Swagger_5.png",
+              "/Tienda/Swagger_6.png"
             ],
             linkRepository:
               "https://github.com/LuchoNoPrograma/spring_boot_vue_fullstack_app",
-            linkWebsite: "",
+            linkWebsite: "https://spring-boot-tienda-backend.onrender.com/doc/swagger-ui/index.html",
             createdAt: new Date(2024, 0, 31),
           },
         ]);
