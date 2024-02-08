@@ -11,10 +11,10 @@ export const useProjectsStore = defineStore("projects", () => {
           {
             projectId: 1,
             srcPortrait: "/Tienda/Swagger_Portrait.png",
-            title: "Tienda Backend",
-            description: `Desarrollé una aplicación Backend API REST, diseñada para cumplir con las reglas de negocio de un supermercado sencillo.
+            title: "Tienda REST API",
+            description: `Desarrollé una aplicación Backend con servicios de REST API, diseñada para cumplir con las reglas de negocio de una tienda sencilla.
      Implementado con Swagger para generar una documentación clara y detallada.
-     Además, incorporé un entorno de Test con JUnit mediante contenedores Docker.`,
+     Además, incorporé un entorno de Test con JUnit5 y Testcontainers el cual provee entornos de prueba en un contenedor Docker.`,
             tag: "Backend",
             techs: [
               {
@@ -31,7 +31,7 @@ export const useProjectsStore = defineStore("projects", () => {
               },
               {
                 name: "Docker",
-                use: "Implementado como contenedor para las pruebas, permitiendo la creación de un entorno aislado y reproducible para el testing.",
+                use: "Para las pruebas del REST API, utilicé Testcontainers y JUnit 5 con contenedores Docker, garantizando un ambiente de testing aislado y reproducible.",
               },
             ],
             srcImg: [
@@ -40,11 +40,12 @@ export const useProjectsStore = defineStore("projects", () => {
               "/Tienda/Swagger_3.png",
               "/Tienda/Swagger_4.png",
               "/Tienda/Swagger_5.png",
-              "/Tienda/Swagger_6.png"
+              "/Tienda/Swagger_6.png",
             ],
             linkRepository:
-              "https://github.com/LuchoNoPrograma/spring_boot_vue_fullstack_app",
-            linkWebsite: "https://spring-boot-tienda-backend.onrender.com/doc/swagger-ui/index.html",
+              "https://github.com/LuchoNoPrograma/tienda-rest-api",
+            linkWebsite:
+              "https://tienda-rest-api-luisfluoxetina.koyeb.app/",
             createdAt: new Date(2024, 0, 31),
           },
         ]);
