@@ -45,7 +45,7 @@ export const useProjectsStore = defineStore("projects", () => {
             linkRepository:
               "https://github.com/LuchoNoPrograma/tienda-rest-api",
             linkWebsite:
-              "https://tienda-rest-api-luisfluoxetina.koyeb.app/",
+              "https://tienda-rest-api-luisfluoxetina.koyeb.app/doc/swagger-ui/index.html",
             createdAt: new Date(2024, 0, 31),
           },
         ]);
