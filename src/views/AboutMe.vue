@@ -46,7 +46,7 @@ const focusItem = (item: ItemCardWithFocus, focused: boolean) => {
 
 <template>
   <div class="grid grid-cols-12 gap-4">
-    <div class="lg:col-span-7 col-span-12">
+    <div class="lg:col-span-12 col-span-12">
       <h2 class="text-3xl">
         ¡Bienvenido a mi
         <span class="text-emerald-300">Portfolio digital!</span>
@@ -67,7 +67,7 @@ const focusItem = (item: ItemCardWithFocus, focused: boolean) => {
       </p>
     </div>
 
-    <div class="lg:col-span-5 col-span-12"></div>
+<!--    <div class="lg:col-span-5 col-span-12"></div>-->
 
     <div class="col-span-full">
       <h3 class="text-3xl">¿Qué <span class="text-emerald-300">hago?</span></h3>
