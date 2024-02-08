@@ -35,18 +35,10 @@ const downloadCV = () => {
 
 <template>
   <div
-    class="profile sticky grid grid-cols-12 gap-2 bg-slate-800 p-4 overflow-hidden rounded-xl w-full shadow-sm shadow-black"
+    class="profile sticky bg-slate-800 p-4 overflow-hidden rounded-xl w-full shadow-sm shadow-black text-center"
     v-bind="$attrs"
   >
-    <div class="profile-info col-span-7">
-      <div class="profile-info__overlay">
-        <h3 class="text-3xl">
-          Hola, soy <br />
-          Luis Morales <span class="text-emerald-300">V.</span>
-        </h3>
-      </div>
-    </div>
-    <div class="profile-photo col-span-5">
+    <div class="profile-photo max-w-32 mx-auto">
       <img
         alt="Profile Photo"
         class="profile-photo relative overflow-hidden object-cover rounded-full transition-transform duration-300 hover:scale-110"
@@ -54,7 +46,17 @@ const downloadCV = () => {
       />
     </div>
 
-    <div class="col-span-12">
+
+    <div class="profile-info">
+      <div class="profile-info__overlay">
+        <h3 class="text-3xl">
+          Hola, soy <br />
+          Luis Morales <span class="text-emerald-300">V.</span>
+        </h3>
+      </div>
+    </div>
+
+    <div class="mx-auto">
       <h4 class="text-xl text-emerald-300 drop-shadow-glow my-0">
         Desarrollador Fullstack
       </h4>
@@ -62,15 +64,17 @@ const downloadCV = () => {
         <span class="text-cyan-300 drop-shadow-glow"
           >+2 Años de experiencia</span
         >
-        desarrollando software empresarial.
+        desarrollando software empresarial, trabajando tanto como <span class="underline">freelancer</span> como por <span class="underline">contratos laborales</span>.
       </p>
 
       <div class="profile-footer flex items-center gap-1 mb-3">
-        <base-button icon="icon-Download" href="/pdf/FullstackDeveloper(Vue-Java)CV.pdf" target="_blank" download="FullstackDeveloper(Vue-Java)CV.pdf">Descargar CV</base-button>
+        <base-button class="mx-auto" icon="icon-Download" href="/pdf/FullstackDeveloper(Vue-Java)CV.pdf" target="_blank"
+                     download="FullstackDeveloper(Vue-Java)CV.pdf"
+        >Descargar CV</base-button>
       </div>
     </div>
 
-    <div class="col-span-12">
+    <div class="mx-auto">
       <div class="flex justify-center gap-2 z-10">
         <base-chip
           :border="true"
