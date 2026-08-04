@@ -1,0 +1,9 @@
+dist
+coverage
+node_modules
+package-lock.json
+public/pdf
+src/assets/css
+src/assets/scss
+test-results
+playwright-report

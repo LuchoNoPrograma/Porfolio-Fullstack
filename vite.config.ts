@@ -1,21 +1,11 @@
-import {defineConfig} from 'vite'
-import vue from '@vitejs/plugin-vue'
-import svgLoader from "vite-svg-loader";
-import {fileURLToPath} from "url";
+import tailwindcss from "@tailwindcss/vite";
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), svgLoader()],
-  /*resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
-  },*/
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@import "./src/assets/scss/_variables.scss";`
-      }
-    }
-  }
-})
+  plugins: [tailwindcss(), vue()],
+  build: {
+    target: "es2020",
+    cssCodeSplit: true,
+  },
+});

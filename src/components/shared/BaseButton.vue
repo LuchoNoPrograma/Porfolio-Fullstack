@@ -1,83 +1,127 @@
-<script lang="ts" setup>
-import { PropType } from "vue";
+<script setup lang="ts">
+import { computed } from "vue";
 
-const props = defineProps({
-  title: {
-    type: String,
-  },
-  icon: {
-    type: String
-  },
-  color: {
-    type: String as PropType<"primary" | "secondary">,
-    default: "primary",
-  },
-  to: {
-    type: String
-  },
-  href: {
-    type: String
-  },
-  download: {
-    type: String
-  },
-  target: {
-    type: String
-  }
-});
+defineOptions({ inheritAttrs: false });
 
-const emits = defineEmits(['on-click']);
-const onClick = () => {
-  emits('on-click')
-}
+type ButtonVariant = "primary" | "secondary" | "text";
+
+const props = withDefaults(
+  defineProps<{
+    href?: string;
+    target?: "_blank" | "_self";
+    download?: string;
+    type?: "button" | "submit" | "reset";
+    variant?: ButtonVariant;
+  }>(),
+  {
+    target: "_self",
+    type: "button",
+    variant: "primary",
+  },
+);
+
+const emit = defineEmits<{
+  click: [event: MouseEvent];
+}>();
+
+const tag = computed(() => (props.href ? "a" : "button"));
+const rel = computed(() =>
+  props.target === "_blank" ? "noopener noreferrer" : undefined,
+);
 </script>
 
 <template>
-  <div v-ripple :class="color" class="base-btn" @click="onClick" v-bind="$attrs">
-    <template v-if="to">
-      <router-link :to="to">
-        <slot> {{ props.title }}</slot>
-      </router-link>
-    </template>
-    <template v-else>
-      <a :href="props?.href" :target="props?.target" :download="props?.target">
-        <slot> {{ props.title }}</slot>
-      </a>
-    </template>
-    <span v-if="icon" class="ml-1">
-      <template v-if="typeof props.icon === 'string'">
-        <i :class="icon" class="icon"></i>
-      </template>
+  <component
+    :is="tag"
+    v-bind="$attrs"
+    :class="`base-button--${props.variant}`"
+    :download="props.href ? props.download : undefined"
+    :href="props.href"
+    :rel="rel"
+    :target="props.href ? props.target : undefined"
+    :type="props.href ? undefined : props.type"
+    class="base-button"
+    @click="emit('click', $event)"
+  >
+    <span class="base-button__label"><slot /></span>
+    <span v-if="$slots.icon" aria-hidden="true" class="base-button__icon">
+      <slot name="icon" />
     </span>
-  </div>
+  </component>
 </template>
 
-<style lang="scss" scoped>
-.base-btn {
-  @apply
-  px-2 py-1 rounded-md border border-transparent inline
-  overflow-hidden max-w-fit
-  text-center cursor-pointer
-  transition-all ease-in duration-200;
+<style scoped>
+.base-button {
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 750;
+  gap: 0.65rem;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
 }
 
-.primary {
-  @apply bg-emerald-400 text-slate-800;
-  box-shadow: inset 0 0 0 0 theme("colors.emerald.400");
+.base-button:hover {
+  transform: translateY(-3px);
 }
 
-.primary:hover {
-  @apply bg-cyan-900 border-white text-white;
-  box-shadow: inset 140px 0 0 0 theme("colors.cyan.900");
+.base-button:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
 }
 
-.secondary {
-  @apply bg-cyan-900 text-white;
-  box-shadow: inset 0 0 0 0 theme("colors.cyan.900");
+.base-button--primary {
+  background: var(--accent);
+  box-shadow: 0 8px 18px rgb(34 104 71 / 22%);
+  color: #ffffff;
 }
 
-.secondary:hover {
-  @apply bg-emerald-400 text-slate-800;
-  box-shadow: inset 140px 0 0 0 theme("colors.emerald.400");
+.base-button--primary:hover {
+  background: var(--accent-strong);
+  box-shadow: 0 14px 28px rgb(34 104 71 / 30%);
+}
+
+.base-button--secondary {
+  background: transparent;
+  border-color: currentColor;
+  color: inherit;
+}
+
+.base-button--secondary:hover {
+  background: rgb(255 255 255 / 10%);
+  box-shadow: 0 12px 26px rgb(0 0 0 / 14%);
+}
+
+.base-button--text {
+  color: var(--ink);
+  min-height: 40px;
+  padding-inline: 0;
+}
+
+.base-button--text:hover {
+  color: var(--link);
+}
+
+.base-button__icon {
+  display: inline-grid;
+  flex: 0 0 auto;
+  place-items: center;
+  transition: transform 180ms ease;
+}
+
+.base-button:hover .base-button__icon {
+  transform: translate(2px, -2px);
 }
 </style>
