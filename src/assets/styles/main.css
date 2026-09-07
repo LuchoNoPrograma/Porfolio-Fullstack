@@ -397,7 +397,59 @@ p {
 }
 
 .projects-section {
-  background: var(--paper);
+  background: #132e26;
+  border-top: 1px solid #28493a;
+  color: #f4f5ee;
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.projects-section > .section-shell {
+  max-width: 1380px;
+}
+
+.projects-section .section-index {
+  align-items: center;
+  color: #b2d5bc;
+  display: flex;
+  gap: 0.8rem;
+  letter-spacing: 0.12em;
+}
+
+.projects-section .section-index::before {
+  background: #b2d5bc;
+  content: "";
+  height: 1px;
+  width: 2rem;
+}
+
+.projects-section .section-heading h2 {
+  color: #f4f5ee;
+  font-size: clamp(2.6rem, 5.5vw, 5rem);
+  font-weight: 550;
+  letter-spacing: -0.055em;
+  max-width: 850px;
+}
+
+.projects-section .projects-section__header {
+  gap: 3rem;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 0.8fr);
+  margin-bottom: 3.5rem;
+}
+
+.projects-section .projects-section__header > p {
+  border-left: 1px solid #5d7a67;
+  color: #b7c9be;
+  font-size: 1rem;
+  padding-left: 1.25rem;
+}
+
+@media (max-width: 820px) {
+  .projects-section .projects-section__header {
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+    margin-bottom: 2.5rem;
+  }
 }
 
 .projects-section__header,
