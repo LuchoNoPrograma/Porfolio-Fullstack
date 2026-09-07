@@ -8,6 +8,7 @@ describe("portfolio data", () => {
 
     expect(new Set(identifiers).size).toBe(projects.length);
     expect(projects.length).toBeGreaterThanOrEqual(3);
+    expect(identifiers).toContain("nini-hub");
 
     projects.forEach((project) => {
       expect(project.repositoryUrl).toMatch(/^https:\/\/github\.com\//);

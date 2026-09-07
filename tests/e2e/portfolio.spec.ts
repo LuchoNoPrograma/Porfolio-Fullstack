@@ -14,15 +14,40 @@ test("presents the portfolio and selected projects", async ({ page }) => {
     "animation-name",
     "hero-media-in",
   );
-  await expect(page.locator(".project-row")).toHaveCount(4);
+  await expect(page.locator(".project-row")).toHaveCount(6);
 
   await page.locator("#proyectos").scrollIntoViewIfNeeded();
-  await expect(page.getByRole("heading", { level: 3, name: "Nexa" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 3, name: "Nini Hub" })).toBeVisible();
   await expect(
     page.locator(".project-row").first().getByRole("button", {
       name: "Imagen siguiente",
     }),
   ).toBeVisible();
+
+  await page
+    .locator(".project-row")
+    .first()
+    .locator(".carousel__slide--active .project-carousel__expand")
+    .click();
+
+  const expandedGallery = page.getByRole("dialog", {
+    name: "Galería ampliada de Chatty",
+  });
+  await expect(expandedGallery).toBeVisible();
+  const galleryHeader = expandedGallery.locator(".project-lightbox__header");
+  await expect(galleryHeader.getByText("Imagen 1 de 4")).toBeVisible();
+  await expandedGallery.getByRole("button", { name: "Imagen siguiente" }).click();
+  await expect(galleryHeader.getByText("Imagen 2 de 4")).toBeVisible();
+  await expandedGallery.getByRole("button", { name: "Cerrar galería" }).click();
+  await expect(expandedGallery).not.toBeVisible();
+
+  await page
+    .locator(".project-row")
+    .first()
+    .locator(".carousel__slide--active .project-carousel__expand")
+    .click();
+  await page.keyboard.press("Escape");
+  await expect(expandedGallery).not.toBeVisible();
 
   await page.locator("#tecnologias").scrollIntoViewIfNeeded();
   await expect(

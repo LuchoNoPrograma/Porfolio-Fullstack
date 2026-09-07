@@ -24,6 +24,15 @@ Los proyectos y la experiencia viven como datos tipados en
 `src/data/technologies.ts`. No existe una base de datos ni una API: el contenido
 se incluye en el build y se sirve como sitio estático.
 
+Chatty presenta el chat fullstack con Vue, Spring Boot, STOMP/WebSocket y Docker,
+con cuatro capturas reales de escritorio y móvil. Nini Hub muestra la gestión
+de perfiles y cuotas, estadísticas, renovaciones y apertura de agentes.
+
+Al pulsar una captura de cualquier proyecto se abre un visor con carrusel,
+miniaturas, descripción y zoom para leer los detalles. Admite gestos táctiles,
+flechas del teclado y cierre con Escape; bloquea el scroll de fondo y devuelve
+el foco al cerrar. Las animaciones respetan la preferencia de movimiento reducido.
+
 El correo no aparece como texto plano en el HTML ni en los datos estructurados.
 Se reconstruye en el navegador únicamente cuando la persona solicita contactar.
 El CV contiene los datos proporcionados por su autor y se mantiene como descarga

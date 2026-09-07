@@ -12,6 +12,110 @@ export const navigation: readonly NavigationItem[] = [
 
 export const projects: readonly Project[] = [
   {
+    id: "chatty",
+    eyebrow: {
+      es: "Chat en tiempo real · Fullstack · Docker",
+      en: "Real-time chat · Fullstack · Docker",
+    },
+    title: "Chatty",
+    description: {
+      es: "Chat con salas públicas, conversaciones directas y presencia en tiempo real. Permite responder con citas, consultar confirmaciones de entrega y lectura y recuperar la conversación tras una desconexión, desde el móvil o el escritorio.",
+      en: "A chat with public rooms, direct conversations, and real-time presence. Users can reply with quotes, check delivery and read receipts, and recover conversations after a disconnection, on mobile or desktop.",
+    },
+    result: {
+      es: "Vue y Spring Boot conectados por REST y STOMP/WebSocket, con reintentos sin duplicar mensajes. La construcción Docker en dos etapas entrega toda la aplicación en un contenedor; H2 mantiene los datos temporales en memoria.",
+      en: "Vue and Spring Boot connected through REST and STOMP/WebSocket, with retries that prevent duplicate messages. A two-stage Docker build ships the complete application in one container; H2 keeps temporary data in memory.",
+    },
+    images: [
+      {
+        src: publicAsset("images/projects/chatty/sala-escritorio.png"),
+        alt: {
+          es: "Sala de Chatty en escritorio con presencia y mensajes en tiempo real",
+          en: "Chatty desktop room with presence and real-time messages",
+        },
+        fit: "contain",
+      },
+      {
+        src: publicAsset("images/projects/chatty/directo.png"),
+        alt: {
+          es: "Conversación directa con respuesta citada y texto largo",
+          en: "Direct conversation with a quoted reply and a long message",
+        },
+        fit: "contain",
+      },
+      {
+        src: publicAsset("images/projects/chatty/detalles-mensaje.png"),
+        alt: {
+          es: "Detalle de un mensaje con confirmaciones de entrega y lectura",
+          en: "Message details with delivery and read receipts",
+        },
+        fit: "contain",
+      },
+      {
+        src: publicAsset("images/projects/chatty/chat-movil.png"),
+        alt: {
+          es: "Chatty adaptado a móvil con conversación y controles de mensajes",
+          en: "Chatty on mobile with conversation and message controls",
+        },
+        fit: "contain",
+      },
+    ],
+    repositoryUrl: "https://github.com/LuchoNoPrograma/chat-websocket",
+    stack: ["Vue 3", "TypeScript", "Spring Boot", "STOMP / WebSocket", "H2", "Docker"],
+  },
+  {
+    id: "nini-hub",
+    eyebrow: {
+      es: "Aplicación de escritorio · Flutter",
+      en: "Desktop application · Flutter",
+    },
+    title: "Nini Hub",
+    description: {
+      es: "Nini Hub elimina el proceso tedioso de cerrar sesión, cambiar de cuenta y volver a iniciar sesión cada vez que necesitas usar otro perfil. Reúne varias cuentas de Codex y Claude Code, muestra cuál tiene cuota disponible y permite abrirla directamente en la carpeta de cada proyecto.",
+      en: "Nini Hub removes the tedious process of signing out, switching accounts, and signing in again whenever another profile is needed. It brings multiple Codex and Claude Code accounts together, shows which one has quota available, and opens it directly in each project's folder.",
+    },
+    result: {
+      es: "Cambiar de cuenta deja de interrumpir el trabajo: basta elegir un perfil disponible para continuar en segundos, con cuotas, renovaciones e historial de uso organizados en un solo lugar.",
+      en: "Switching accounts no longer interrupts the workflow: choose an available profile and continue in seconds, with quotas, renewals, and usage history organized in one place.",
+    },
+    images: [
+      {
+        src: publicAsset("images/projects/nini-hub/accounts.webp"),
+        alt: {
+          es: "Panel de perfiles, disponibilidad y cuotas de Nini Hub",
+          en: "Nini Hub profiles, availability, and usage limits dashboard",
+        },
+        fit: "contain",
+      },
+      {
+        src: publicAsset("images/projects/nini-hub/statistics.webp"),
+        alt: {
+          es: "Estadísticas de uso de Nini Hub con calendario y tendencia de tokens",
+          en: "Nini Hub usage statistics with activity calendar and token trend",
+        },
+        fit: "contain",
+      },
+      {
+        src: publicAsset("images/projects/nini-hub/renewal.webp"),
+        alt: {
+          es: "Edición de renovación, facturación y pago de un perfil en Nini Hub",
+          en: "Editing a profile renewal, billing, and payment in Nini Hub",
+        },
+        fit: "contain",
+      },
+      {
+        src: publicAsset("images/projects/nini-hub/launch-agent.webp"),
+        alt: {
+          es: "Selección de workspace y cuenta para lanzar un agente desde Nini Hub",
+          en: "Selecting a workspace and account to launch an agent from Nini Hub",
+        },
+        fit: "contain",
+      },
+    ],
+    repositoryUrl: "https://github.com/LuchoNoPrograma/nini_hub",
+    stack: ["Flutter", "Dart", "Riverpod", "Drift + SQLite", "JSON-RPC"],
+  },
+  {
     id: "amazonia-en-casa",
     eyebrow: {
       es: "Tienda web · React",
