@@ -14,7 +14,7 @@ test("presents the portfolio and selected projects", async ({ page }) => {
     "animation-name",
     "hero-media-in",
   );
-  await expect(page.locator(".project-row")).toHaveCount(3);
+  await expect(page.locator(".project-row")).toHaveCount(4);
 
   await page.locator("#proyectos").scrollIntoViewIfNeeded();
   await expect(page.getByRole("heading", { level: 3, name: "Nexa" })).toBeVisible();

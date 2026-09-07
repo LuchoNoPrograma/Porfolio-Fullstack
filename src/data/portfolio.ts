@@ -12,6 +12,59 @@ export const navigation: readonly NavigationItem[] = [
 
 export const projects: readonly Project[] = [
   {
+    id: "amazonia-en-casa",
+    eyebrow: {
+      es: "Tienda web · React",
+      en: "Web storefront · React",
+    },
+    title: "Amazonía en Casa",
+    description: {
+      es: "Catálogo de productos amazónicos con búsqueda, filtros, fichas, favoritos y carrito. El comprador prepara una solicitud por WhatsApp y el administrador gestiona productos, precios, ofertas y cupones.",
+      en: "An Amazonian product catalog with search, filters, product pages, favorites, and a shopping cart. Customers prepare a purchase request through WhatsApp, while the administrator manages products, prices, offers, and coupons.",
+    },
+    result: {
+      es: "Una experiencia de compra y administración adaptable a móvil y escritorio. El carrito y las ediciones se conservan en el navegador; es una demostración sin servidor de pedidos ni pagos integrados.",
+      en: "A shopping and administration experience for mobile and desktop. Cart contents and edits persist in the browser; this is a demo without an order backend or integrated payments.",
+    },
+    images: [
+      {
+        src: publicAsset("images/projects/amazonia-en-casa/catalogo.png"),
+        alt: {
+          es: "Catálogo de Amazonía en Casa con búsqueda, categorías y productos",
+          en: "Amazonía en Casa catalog with search, categories, and products",
+        },
+        fit: "contain",
+      },
+      {
+        src: publicAsset("images/projects/amazonia-en-casa/producto.png"),
+        alt: {
+          es: "Detalle de producto con fotografía, precio y selector de cantidad",
+          en: "Product details with photo, price, and quantity selector",
+        },
+        fit: "contain",
+      },
+      {
+        src: publicAsset("images/projects/amazonia-en-casa/administrador.png"),
+        alt: {
+          es: "Panel de administración del catálogo, precios y ofertas",
+          en: "Administration dashboard for the catalog, prices, and offers",
+        },
+        fit: "contain",
+      },
+      {
+        src: publicAsset("images/projects/amazonia-en-casa/editar-producto.png"),
+        alt: {
+          es: "Editor de productos con fotografía, categoría y descripciones",
+          en: "Product editor with photo, category, and descriptions",
+        },
+        fit: "contain",
+      },
+    ],
+    repositoryUrl: "https://github.com/LuchoNoPrograma/amazonia-en-casa",
+    websiteUrl: "https://luchonoprograma.github.io/amazonia-en-casa/",
+    stack: ["React", "TypeScript", "Vite", "Tailwind CSS", "React Router"],
+  },
+  {
     id: "nexa",
     eyebrow: {
       es: "Producto web · Vue",
